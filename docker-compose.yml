@@ -1,6 +1,6 @@
 services:
   smry-app:
-    image: smry:1.0
+    image: theapu/smry:latest
     container_name: smry
     ports:
       - "3000:3000"
