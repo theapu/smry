@@ -1,0 +1,31 @@
+services:
+  smry-app:
+    image: smry:1.0
+    container_name: smry
+    ports:
+      - "3000:3000"
+    environment:
+      - OPENAI_API_KEY=<open AI api key>
+      - KV_URL=redis://redis:6379
+      - KV_REST_API_URL=http://srh:80
+      - KV_REST_API_TOKEN=<use SRH TOKEN value>
+      - KV_REST_API_READ_ONLY_TOKEN=<use SRH TOKEN value>     
+    restart: unless-stopped
+
+  redis:
+    image: redis
+    container_name: smry-redis
+    ports:
+      - '6379:6379'
+    restart: unless-stopped
+
+  srh:
+    ports:
+      - '8079:80'
+    image: hiett/serverless-redis-http:latest
+    container_name: smry-srh
+    environment:
+      SRH_MODE: env
+      SRH_TOKEN: <use a long random string>
+      SRH_CONNECTION_STRING: 'redis://redis:6379'
+    restart: unless-stopped
