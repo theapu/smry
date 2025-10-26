@@ -135,30 +135,6 @@ export default function Home() {
             Remove paywalls, ads, and popups from any website and instantly get the summary
           </h2>
 
-          <h3 className="mt-24 text-center text-lg font-semibold text-gray-800">
-            OR
-            <span className="ml-3 text-gray-700 hover:text-gray-900 inline-block">
-              <span
-                className={cn(
-                  "bg-white text-gray-700 font-mono py-2 px-4 rounded-md border border-zinc-200",
-                  fira.className
-                )}
-                style={{
-                  lineHeight: "1.4",
-                  fontSize: "0.875rem",
-                }}
-              >
-                {process.env.NEXT_PUBLIC_URL}/
-                <span
-                  className="bg-[#FBF719] text-gray-700 px-2 py-1 rounded"
-                  style={{ fontWeight: "500" }}
-                >
-                  &lt;URL&gt;
-                </span>
-              </span>
-            </span>
-          </h3>
-
           {urlError && (
             <p
               className="text-red-500 mt-2 flex items-center animate-fade-in"

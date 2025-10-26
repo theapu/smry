@@ -3,13 +3,14 @@ services:
     image: theapu/smry:latest
     container_name: smry
     ports:
-      - "3000:3000"
+      - "33000:3000"
     environment:
       - OPENAI_API_KEY=<open AI api key>
       - KV_URL=redis://redis:6379
       - KV_REST_API_URL=http://srh:80
       - KV_REST_API_TOKEN=<use SRH TOKEN value>
       - KV_REST_API_READ_ONLY_TOKEN=<use SRH TOKEN value>     
+      - NEXT_PUBLIC_URL=http://localhost:33000
     restart: unless-stopped
 
   redis:
